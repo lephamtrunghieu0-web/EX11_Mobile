@@ -1,159 +1,164 @@
-body{
-  
-
+:root {
+    --primary-orange: #ff7f27;
+    --primary-glow: rgba(255, 127, 39, 0.3);
+    --bg-dark: #0f0f0f;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-dim: #a0a0a0;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Global */
-.container{
- 
-
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-ul{
-  
-
+.navbar {
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--glass-border);
 }
 
-.button_1{
- 
-
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #ff7f27, #ffbd82);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.dark{
- 
-
+.nav-links {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    transition: var(--transition);
+    border-radius: 8px;
 }
 
-/* Header **/
-header{
-  
-
+.nav-links:hover {
+    background: var(--card-bg);
+    color: var(--primary-orange);
 }
 
-header a{
-  
-
+header {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #2d3034 0%, #0f0f0f 100%);
+    text-align: center;
 }
 
-header li{
-  
-
+header h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 20px;
 }
 
-header #branding{
- 
-
+.teacher-name {
+    color: var(--primary-orange);
+    text-shadow: 0 0 30px var(--primary-glow);
 }
 
-header #branding h1{
-  
-
+header p {
+    color: var(--text-dim);
+    max-width: 600px;
+    font-size: 1.1rem;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
 }
 
-header nav{
-  
-
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
-header .highlight, header .current a{
-  
-
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
 }
 
-header a:hover{
-  
-
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    border-radius: 20px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
-/* Showcase */
-#showcase{
-  
-
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--primary-glow), transparent);
+    opacity: 0;
+    transition: var(--transition);
 }
 
-#showcase h1{
-  
-
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-orange);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-#showcase p{
-  
-
+.card:hover::before {
+    opacity: 1;
 }
 
-/* Newsletter */
-#newsletter{
-  
-
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-orange);
 }
 
-#newsletter h1{
-
-}
-
-#newsletter form {
- 
-
-}
-
-#newsletter input[type="email"]{
-  
-
-}
-
-/* Boxes */
-#boxes{
-  
-
-}
-
-#boxes .box{
-  
-}
-
-#boxes .box img{
-  
-}
-
-/* Sidebar */
-aside#sidebar{
-  
-}
-
-aside#sidebar .quote input, aside#sidebar .quote textarea{
-  
-}
-
-/* Main-col */
-article#main-col{
-  
-}
-
-/* Services */
-ul#services li{
-  
-}
-
-footer{
-  
-}
-
-/* Media Queries */
-@media(max-width: 768px){
-
-  header #branding,
-  header nav,
-  header nav li,
-  #newsletter h1,
-  #newsletter form,
-  #boxes .box,
-  article#main-col,
-  aside#sidebar{
+@media (max-width: 768px) {
+    header h1 { font-size: 2.8rem; }
     
-  }
-
-  header{
+    .nav-menu {
+        background: rgba(15, 15, 15, 0.95);
+        backdrop-filter: blur(20px);
+    }
     
-  }
+    .bar {
+        width: 30px;
+        background: linear-gradient(90deg, var(--primary-orange), #ffbd82);
+    }
+}
 
+.footer {
+    padding: 60px 0;
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+    color: var(--text-dim);
 }
